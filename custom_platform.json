@@ -1,0 +1,42 @@
+{
+  "variables": {
+    "platform_name": "Younews-dev",
+    "platform_version": "{{env `AWS_EB_PLATFORM_VERSION`}}",
+    "platform_arn": "{{env `AWS_EB_PLATFORM_ARN`}}",
+    "aws_access_key": "{{env `PACKER_AWS_ACCESS_KEY`}}",
+    "aws_secret_key": "{{env `PACKER_AWS_SECRET_KEY`}}"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "name": "HVM AMI builder",
+      "region": "eu-west-1",
+      "source_ami": "ami-0186cf1649a33cdcb",
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ssh_pty": "true",
+      "ami_name": "NGINX and PHP-FPM on Amazon Linux (built on {{isotime \"20060102150405\"}})",
+      "tags": {
+        "eb_platform_name": "{{user `platform_name`}}",
+        "eb_platform_version": "{{user `platform_version`}}",
+        "eb_platform_arn": "{{user `platform_arn`}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "builder",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "shell",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}",
+      "scripts": [
+        "builder/builder.sh"
+      ]
+    }
+  ]
+}
