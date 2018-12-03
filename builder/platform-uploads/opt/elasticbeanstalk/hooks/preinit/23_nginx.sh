@@ -16,7 +16,7 @@
 
 cp -f /opt/elasticbeanstalk/support/conf/nginx/nginx.conf /etc/nginx/nginx.conf
 
-cp -f /opt/elasticbeanstalk/support/conf/nginx/php.conf-7.1 /etc/nginx/default.d/php.conf-7.1
+cp -f /opt/elasticbeanstalk/support/conf/nginx/php.conf-7.2 /etc/nginx/default.d/php.conf-7.2
 
 cp -f /opt/elasticbeanstalk/support/conf/nginx/gzip.conf /etc/nginx/conf.d/gzip.conf
 
@@ -24,9 +24,9 @@ cp -f /opt/elasticbeanstalk/support/conf/nginx/ngx_pagespeed.conf /etc/nginx/def
 
 cp -f /opt/elasticbeanstalk/support/conf/nginx/ngx_pagespeed_module.conf /usr/share/nginx/modules/ngx_pagespeed_module.conf
 
-cp -f /opt/elasticbeanstalk/support/conf/php-fpm/php-fpm.conf /etc/php-fpm-7.1.conf
+cp -f /opt/elasticbeanstalk/support/conf/php-fpm/php-fpm.conf /etc/php-fpm-7.2.conf
 
-cp -f /opt/elasticbeanstalk/support/conf/php-fpm/www.conf /etc/php-fpm-7.1.d/www.conf
+cp -f /opt/elasticbeanstalk/support/conf/php-fpm/www.conf /etc/php-fpm-7.2.d/www.conf
 
 cp -f /opt/elasticbeanstalk/support/conf/cron/healthd.nginx.conf /etc/cron.hourly/cron.logcleanup.elasticbeanstalk.healthd.nginx.conf
 
