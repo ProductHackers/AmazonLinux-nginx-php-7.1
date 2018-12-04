@@ -23,10 +23,10 @@ metadata:
   maintainer: Jorge <jorge@producthackers.es>
   description: Amazon OS nginx php php-pfm
   operating_system_name: Amazon linux
-  operating_system_version: 2016.09.1
+  operating_system_version: 2018.03.0 
   programming_language_name: ECMAScript
   programming_language_version: ECMA-262
   framework_name: PHP
-  framework_version: 7.1
+  framework_version: 7.2
   app_server_name: "none"
   app_server_version: "none"
